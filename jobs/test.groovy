@@ -19,7 +19,7 @@ def create_pipeline(String name) {
                   git {
                     branch("*/main")
                     remote {
-                        url ("https://github.com/Dynkine/aurora.git")
+                        url ("https://github.com/Dynkine/aurora")
                     }
                   }
                 }
