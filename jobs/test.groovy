@@ -17,6 +17,7 @@ def create_pipeline(String name) {
                lightweight(true)
                scm {
                   git {
+                    branch(main)
                     remote {
                         url ("https://github.com/Dynkine/aurora.git")
                     }
