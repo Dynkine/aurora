@@ -18,7 +18,7 @@ def create_pipeline(String name) {
                 scm {
                     git {
                         remote {
-                        url "${JENKINS_JOB_DSL_URL}"
+                          url "${JENKINS_JOB_DSL_URL}"
                         {
                     {
                 }
