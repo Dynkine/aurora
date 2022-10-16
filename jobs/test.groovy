@@ -8,7 +8,7 @@ pipelineJob("python-job") {
                 git {
                 branch("*/main")
                 remote {
-                    url ("https://github.com/Dynkine/aurora.git)
+                    url ("https://github.com/Dynkine/aurora.git")
                 }
                 }
             }
