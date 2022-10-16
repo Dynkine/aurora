@@ -16,9 +16,6 @@ pipelineJob("python-job") {
 
     }
     triggers {
-        GenericTrigger(
-            causeString: "Triggered from Webhook",
-            token: "unique-token-to-start-the-current-pipeline"
-        )
+        GenericTrigger()
     }
 }
