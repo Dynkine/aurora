@@ -11,7 +11,7 @@
 
 // // a method that creates a basic pipeline with the given parameter name
 // def create_pipeline(String name) {
-pipelineJob(name) {
+pipelineJob("python-job") {
     definition {
         cpsScm {
             lightweight(true)
