@@ -14,15 +14,16 @@ def create_pipeline(String name) {
     pipelineJob(name) {
         definition {
             cpsScm {
-                lightweight(true)
-                scm {
-                    git {
-                        remote {
-                          url ("https://github.com/Dynkine/aurora.git")
-                        {
-                    {
+               lightweight(true)
+               scm {
+                  git {
+                    remote {
+                        url ("https://github.com/Dynkine/aurora.git")
+                    }
+                  }
                 }
             }
+
         }
     }
 }
