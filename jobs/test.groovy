@@ -16,8 +16,6 @@ pipelineJob("python-job") {
 
     }
     triggers {
-        githubPush{
-            buildOnPushEvents(false)
-        }
+        githubPush()
     }
 }
