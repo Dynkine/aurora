@@ -26,5 +26,8 @@ def create_pipeline(String name) {
             }
 
         }
+        triggers {
+            githubPush()
+        }
     }
 }
