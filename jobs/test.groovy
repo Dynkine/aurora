@@ -13,7 +13,6 @@ pipelineJob("python-job") {
                 }
             }
         }
-
     }
     triggers {
         githubPush()
