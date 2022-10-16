@@ -16,6 +16,6 @@ pipelineJob("python-job") {
     }
     triggers {
         githubPush()
-        upstream('Seed All DSL jobs', 'STABLE')
+        upstream("Seed All DSL jobs", 'SUCCESS')
     }
 }
