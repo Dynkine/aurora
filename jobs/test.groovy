@@ -16,8 +16,6 @@ pipelineJob("python-job") {
 
     }
     triggers {
-        GenericTrigger(
-            token: "unique-token-to-start-the-current-pipeline"
-        )
+        githubPush()
     }
 }
