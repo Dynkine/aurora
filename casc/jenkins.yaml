@@ -1,0 +1,53 @@
+jenkins:
+  securityRealm:
+    local:
+      allowsSignup: false
+      users:
+       - id: admin
+         password: ${JENKINS_ADMIN_PASSWORD}
+       - id: build
+         password: ${JENKINS_BUILD_PASSWORD}
+  authorizationStrategy:
+    globalMatrix:
+      permissions:
+        - "Overall/Administer:admin"
+        - "Overall/Read:authenticated"
+        - "Job/Build:build"
+        - "Job/Cancel:build"
+        - "Job/Read:build"
+        - "Job/Workspace:build"
+        - "Run/Replay:build"
+        - "Run/Update:build"
+  remotingSecurity:
+    enabled: true
+
+  numExecutors: 0
+
+  nodes:
+    - permanent:
+        labelString: "agent"
+        mode: NORMAL
+        name: "agent"
+        numExecutors: 1
+        remoteFS: "/home/jenkins"
+        launcher:
+          ssh:
+            host: "agent"
+            port: 22
+            credentialsId: "SSH_GIT_KEY"
+            launchTimeoutSeconds: 60
+            maxNumRetries: 3
+            retryWaitTime: 30
+            sshHostKeyVerificationStrategy:
+              manuallyTrustedKeyVerificationStrategy:
+                requireInitialManualTrust: false
+
+unclassified:
+  location:
+    url: http://127.0.0.1:8080/
+
+security:
+  queueItemAuthenticator:
+    authenticators:
+    - global:
+        strategy: triggeringUsersAuthorizationStrategy
