@@ -7,8 +7,8 @@
          I’ve already created an agent for my installation so you can use mine auth-token. To use ngrok please do the following. Alternatively you can register and get your personal token.
         
         ```bash
-        #Install ngrok
-        [https://ngrok.com/download](https://ngrok.com/download)
+        #Install ngrok. Here is the link to the download page. Please select your OS and follow the installation instructions.
+        https://ngrok.com/download
         # authenticate
         ngrok config add-authtoken 2GCxEcxZVg0c2ytTC9q5HpM0rgf_6ckcgVG1eCmhMTAp84JuN
         # start ngrok pointing to local Jenkins at port 8080
@@ -29,15 +29,19 @@
         
     - ### Exporting env variables
         
-        I use a number of secrets that I provide as env vars: jenkins admin password, agent ssh keys and  github token. You have to set up these env vars in your environment. 
+        I use a number of secrets that I provide as env vars: jenkins admin password, agent ssh keys and  github token. You have to set up these env vars in your environment.
         
         ```bash
-        # Create ssh key pair for Jenkins agent
+        # Create ssh key pair for Jenkins agent. This command uses default ~/.ssh path. Please change it if required
         ssh-keygen -t rsa -f jenkins_agent
         # Export env vars
+        # Export agent's ssh private key. Please update the key path if it's not the default one.
         export EXPORTED_JENKINS_AGENT_PRIVATE_SSH_KEY=$(cat ~/.ssh/jenkins_agent)
+        # Setup Jenkins admin password that you chose.
         export EXPORTED_JENKINS_ADMIN_PASSWORD=your_jenkins_admin_password
+        # Setup GitHub token to allow the pipeline pull the repo. Update the token if you'd use any other than my repo.
         export EXPORTED_GITHUB_TOKEN=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
+        # Export agent's ssh public key. Please update the key path if it's not the default one.
         export EXPORTED_JENKINS_AGENT_SSH_PUBKEY=$(cat ~/.ssh/jenkins_agent.pub)
         ```
         
@@ -46,6 +50,7 @@
     
     ```bash
     git clone https://github.com/Dynkine/aurora.git
+    # the "aurora" folder will be created
     ```
     
     ### Navigate to the the cloned repo
