@@ -8,6 +8,7 @@ pipelineJob("python-job") {
                 git {
                 branch("*/main")
                 remote {
+                    credentials("dynkine", "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")
                     url ("https://github.com/Dynkine/aurora")
                 }
                 }
