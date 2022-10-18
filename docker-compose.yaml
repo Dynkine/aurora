@@ -7,7 +7,6 @@ services:
         dockerfile: Dockerfile_agent
     image: jenkins/ssh-agent:jdk11
     privileged: true
-    user: root
     container_name: agent
     networks:
       - jenkins
@@ -23,7 +22,6 @@ services:
     restart: unless-stopped
     # privileged: true
     hostname: jenkinsserver
-    user: root
     labels:
       com.example.description: "Jenkins Server for AuroraLab test"
     networks:
